@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { forkJoin } from 'rxjs';
+import { DashboardService } from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  scoreBoardOne: any = [];
+  scoreBoardTwo: any = [];
+
+  constructor(private _dialog: MatDialog, private _dashboardSvc: DashboardService) { }
 
   ngOnInit(): void {
+
   }
+
+  getTeams() {
+    this._dashboardSvc.getTeams().subscribe((resp: any) => {
+      console.log(resp);
+    })
+  }
+
+  addTeams() {
+
+
+  }
+
+
 
 }
