@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-groupcard',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupCardComponent implements OnInit {
 
+  @Input('data') groupStanding: any; 
+  displayedColumns: string[] = ['team_name', 'points', 'goals_scored', 'special_points', 'date_created', 'qualify'];
+
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

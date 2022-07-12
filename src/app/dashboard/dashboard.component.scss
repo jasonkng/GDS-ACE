@@ -2,23 +2,28 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2.4rem;
-
-    &__button-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        :not(:first-child) {
-            margin-left: 2.4rem;
-        }
-    }
-
+    padding: 4.4rem 2.4rem 2.4rem 2.4rem;
+    
     &__content-container {
-        margin-top: 2.4rem;
+        margin: 2.4rem;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
+    &--top-margin {
+        margin-top: 2.4rem;
+    }
+
+    &__table-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+:host::ng-deep .custom-modalbox {
+    mat-dialog-container {
+        padding: 2.4rem;
+    }
 }

@@ -1,0 +1,40 @@
+<div class="matches matches__container">
+    <div class="matches--flex">
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <div *ngIf="!loading && matchHistory.length > 0">
+            <h1 class="matches__title">Match History</h1>
+            <div>
+                <table mat-table [dataSource]="matchHistory" class="mat-elevation-z8 table_width">
+                    <ng-container matColumnDef="team_home">
+                        <th mat-header-cell *matHeaderCellDef> Home Team </th>
+                        <td mat-cell *matCellDef="let element"> {{element.team_home}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="team_home_goals">
+                        <th mat-header-cell *matHeaderCellDef> Home Team Goals </th>
+                        <td mat-cell *matCellDef="let element"> {{element.team_home_goals}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="team_away_goals">
+                        <th mat-header-cell *matHeaderCellDef> Team Away Goals </th>
+                        <td mat-cell *matCellDef="let element"> {{element.team_away_goals}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="team_away">
+                        <th mat-header-cell *matHeaderCellDef> Away Team </th>
+                        <td mat-cell *matCellDef="let element"> {{element.team_away}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="delete_match">
+                        <th mat-header-cell *matHeaderCellDef> Delete Match? </th>
+                        <td mat-cell *matCellDef="let element"> 
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="deleteMatch(element.match_id)">delete</mat-icon>
+                        </td>
+                    </ng-container>
+                    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </div>
+        <div *ngIf="!loading && !isThereMatchHistory">
+            <h1 class="matches__title">No Matches Yet!</h1>
+        </div>
+    </div>
+</div>

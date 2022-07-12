@@ -1,3 +1,11 @@
 <div class="header">
-    <p class="title">WE ARE THE CHAMPIONS!</p>
+    <div class="header__icon-button-container">
+        <mat-icon aria-hidden="false" (click)="navigate('/dashboard')">home</mat-icon>
+        <mat-icon aria-hidden="false" (click)="navigate('/matches')">history</mat-icon>
+    </div>
+    <div class="header__button-container">
+        <button mat-raised-button color="primary" (click)="addTeams()">Add Teams</button>
+        <button mat-raised-button color="primary" (click)="addMatches()">Play Matches</button>
+        <button mat-raised-button color="warn" (click)="resetGame()">Reset Game</button>
+    </div>
 </div>
