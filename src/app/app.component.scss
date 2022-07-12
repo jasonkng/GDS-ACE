@@ -1,14 +1,15 @@
 .app {
-    &__container {
-        height: 100%;   
-    }
-
-    &__body {
-        
+    &__header {
+        width: 100%;
+        position: fixed;
+        z-index: 999;
     }
 }
 
-.header{
-    width: 100%;
-    z-index: 999;
+:host::ng-deep .mat-icon {
+    font-size: 2rem;
+    height: 2rem;
+    width: 2rem;
+    color: white;
+    cursor: pointer;
 }

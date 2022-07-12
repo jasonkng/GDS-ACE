@@ -1,0 +1,14 @@
+<div class="dialog">
+    <div class="dialog__title">{{data.title}}</div>
+    <div class="dialog__subtitle">{{data.instructions}}</div>
+    <div class="dialog--margin">
+        <textarea class="dialog__text-area" name="team_name" id="team_name" cols="50" rows="30" #textInput></textarea>
+    </div>
+    <div class="dialog--margin">
+        <div class="dialog__button-container">
+            <button mat-raised-button color="primary" (click)="submitTeams(textInput.value)" *ngIf="data.path === 'addTeams'">Submit Teams</button>
+            <button mat-raised-button color="primary" (click)="submitMatches(textInput.value)" *ngIf="data.path === 'addMatches'">Submit Match Scores</button>
+            <button mat-raised-button (click)="closeDialog()">Cancel</button>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,12 @@
 <div class="dashboard">
-    <div class="dashboard__button-container">
-        <button mat-raised-button color="primary" (click)="addTeams()">Add Teams</button>
-        <button mat-raised-button color="primary">Play Matches</button>
-        <button mat-raised-button color="warn" (click)="getTeams()">Temp Button for API Calls</button>
-    </div>
     <div class="dashboard__content-container">
-        <app-groupcard></app-groupcard>
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <div class="dashboard__table-flex" *ngIf="!loading && isThereTeams">
+            <app-groupcard *ngIf="scoreBoardOne.length > 0" [data]="scoreBoardOne"></app-groupcard>
+            <app-groupcard *ngIf="scoreBoardTwo.length > 0" class="dashboard--top-margin" [data]="scoreBoardTwo"></app-groupcard>
+        </div>
+        <div *ngIf="!loading && !isThereTeams">
+            <h1>NO TEAMS YET</h1>
+        </div>
     </div>
-
 </div>

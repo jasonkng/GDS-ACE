@@ -1,0 +1,17 @@
+.groupcard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &__qualify {
+        color: green;
+    }
+
+    &__title {
+        text-align: center;
+    }
+}
+
+.table_width{
+    width: 90vw;
+}

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatSliderModule } from '@angular/material/slider';
 import { DashboardComponent } from './dashboard.component';
-import { GroupCardModule } from '../groupcard/groupcard.module';
+import { GroupCardModule } from '../shared/components/groupcard/groupcard.module';
+
 
 @NgModule({
   declarations: [DashboardComponent],
