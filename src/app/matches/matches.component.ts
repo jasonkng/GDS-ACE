@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { GeneralService } from '../shared/services/general.service';
 import { MatchesService } from './matches.service';
 
 @Component({
@@ -13,17 +15,22 @@ export class MatchesComponent implements OnInit {
   isThereMatchHistory: boolean = true;
   matchHistory: any[] = [];
   displayedColumns: string[] = ['team_home', 'team_home_goals', 'team_away_goals', 'team_away', 'delete_match'];
+  subscriptions: Subscription[] = []
 
 
-  constructor(private _matchesSvc: MatchesService) { }
+  constructor(private _matchesSvc: MatchesService, private _genSvc: GeneralService) { }
 
   ngOnInit(): void {
     this.getMatches();
+    this.subscriptions.push(this._genSvc.callGetPoints.subscribe((data: boolean) => {
+      if(data) this.getMatches();
+    }))
   }
 
   getMatches() {
     this.loading = true;
     this.isError = false;
+    this.isThereMatchHistory = true;
     this._matchesSvc.getMatches().subscribe((resp: any) => {
       if(resp.success) this.matchHistory = resp.data;
       this.loading = false;
@@ -36,10 +43,7 @@ export class MatchesComponent implements OnInit {
   }
 
   verifyMatchHistoryLength() {
-    console.log(this.matchHistory);
-    if (Object.keys(this.isThereMatchHistory).length === 0) this.isThereMatchHistory = false;
-    else this.isThereMatchHistory = true;
-    console.log(this.isThereMatchHistory)
+    this.isThereMatchHistory = Array.isArray(this.matchHistory);
   }
 
   deleteMatch(matchId: string): void {

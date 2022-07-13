@@ -6,8 +6,8 @@
     </div>
     <div class="dialog--margin">
         <div class="dialog__button-container">
-            <button mat-raised-button color="primary" (click)="submitTeams(textInput.value)" *ngIf="data.path === 'addTeams'">Submit Teams</button>
-            <button mat-raised-button color="primary" (click)="submitMatches(textInput.value)" *ngIf="data.path === 'addMatches'">Submit Match Scores</button>
+            <button mat-raised-button color="primary" (click)="submitTeams(textInput.value)" *ngIf="data.path === DialogModel.ADD_TEAMS">Submit Teams</button>
+            <button mat-raised-button color="primary" (click)="submitMatches(textInput.value)" *ngIf="data.path === DialogModel.ADD_MATCHES">Submit Match Scores</button>
             <button mat-raised-button (click)="closeDialog()">Cancel</button>
         </div>
     </div>
