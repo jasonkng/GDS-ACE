@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SharedDialogComponent } from '../shared/dialogs/shared-dialog/shared-dialog.component';
+import { DialogModel } from '../shared/models/static-data.model';
 import { GeneralService } from '../shared/services/general.service';
 
 @Component({
@@ -28,8 +29,8 @@ export class HeaderComponent implements OnInit {
 
   addTeams() {
     let dialogObj = {
-      path: 'addTeams',
-      title: 'Add Teams',
+      path: DialogModel.ADD_TEAMS,
+      title: DialogModel.ADD_TEAMS,
       instructions: 'Insert into text area <Team A name> <Team A registration date in DD/MM> <Team A group number> with line break to create a team'
     }
     const dialogRef = this._dialog.open(SharedDialogComponent, {
@@ -42,8 +43,8 @@ export class HeaderComponent implements OnInit {
 
   addMatches() {
     let dialogObj = {
-      path: 'addMatches',
-      title: 'Add Matches',
+      path: DialogModel.ADD_MATCHES,
+      title: DialogModel.ADD_MATCHES,
       instructions: 'Insert into text area <Team A name> <Team B name> <Team A goals scored> <Team B goals scored> with line break between each game'
     }
     const dialogRef = this._dialog.open(SharedDialogComponent, {
