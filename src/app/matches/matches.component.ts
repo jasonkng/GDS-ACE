@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GeneralService } from '../shared/services/general.service';
 import { MatchesService } from './matches.service';
@@ -8,7 +8,7 @@ import { MatchesService } from './matches.service';
   templateUrl: './matches.component.html',
   styleUrls: ['./matches.component.scss']
 })
-export class MatchesComponent implements OnInit {
+export class MatchesComponent implements OnInit, OnDestroy {
   
   loading: boolean = true;
   isError: boolean = false;
@@ -52,4 +52,9 @@ export class MatchesComponent implements OnInit {
     })
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((sub: any) => {
+      if(sub) sub.unsubscribe();
+    })
+  }
 }
