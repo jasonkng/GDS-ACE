@@ -14,7 +14,7 @@ export class APIInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log(request.url)
-    const apiReq = request.clone({url: `http://football-jason.herokuapp.com/${request.url}`})
+    const apiReq = request.clone({url: `https://football-jason.herokuapp.com/${request.url}`})
     // const apiReq = request.clone({url: `http://localhost:5000/${request.url}`})
     return next.handle(apiReq);
   }
