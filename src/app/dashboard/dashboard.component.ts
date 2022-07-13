@@ -40,19 +40,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.verifyScoreBoard();
       this.loading = false;
     }, (err) => {
-      console.log("Error");
+      console.log("Error", err);
       this.isError = true;
     })
   }
 
   verifyScoreBoard(): void {
-    if(Object.keys(this.scoreBoardOne).length === 0 && Object.keys(this.scoreBoardTwo).length === 0) this.isThereTeams = false;
-    else this.isThereTeams = true;
-    console.log(this.isThereTeams)
-  }
-
-  showMatches() {
-
+    if(Array.isArray(this.scoreBoardOne) || Array.isArray(this.scoreBoardTwo)) this.isThereTeams = true;
+    else this.isThereTeams = false;
   }
 
   ngOnDestroy(): void {

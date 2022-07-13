@@ -33,8 +33,9 @@
                 </table>
             </div>
         </div>
-        <div *ngIf="!loading && !isThereMatchHistory">
-            <h1 class="matches__title">No Matches Yet!</h1>
+        <div class="!loading">
+            <h1 *ngIf="!isThereMatchHistory" class="matches__title">No Matches Yet!</h1>
+            <h1 *ngIf="isError" class="matches__title">OOPS! Error occured! Please try again later!</h1>
         </div>
     </div>
 </div>

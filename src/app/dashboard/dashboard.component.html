@@ -5,8 +5,9 @@
             <app-groupcard *ngIf="scoreBoardOne.length > 0" [data]="scoreBoardOne"></app-groupcard>
             <app-groupcard *ngIf="scoreBoardTwo.length > 0" class="dashboard--top-margin" [data]="scoreBoardTwo"></app-groupcard>
         </div>
-        <div *ngIf="!loading && !isThereTeams">
-            <h1>No Teams Yet! Click on Add Teams in the header to register your team!</h1>
+        <div *ngIf="!loading">
+            <h1 *ngIf="!isThereTeams">No Teams Yet! Click on Add Teams in the header to register your team!</h1>
+            <h1 *ngIf="isError">OOPS! Error occured! Please try again later!</h1>
         </div>
     </div>
 </div>
